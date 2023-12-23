@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-options=("work" "personal" "youtube" "nvim-package" "other")
+options=("Go" "Java" "Javascript" "Rust" "C" "C++" "Python" "youtube" "nvim-package" "other")
 PS3="Select folder: "
 
 select folder_name in "${options[@]}"; do
@@ -18,7 +18,7 @@ if [[ -z $subfolder_name ]]; then
     exit 1
 fi
 
-mkdir "$HOME/$folder_name/$subfolder_name"
+mkdir "$HOME/personal/$subfolder_name"
 
 if [[ $? -ne 0 ]]; then
     echo "Error creating subfolder '$subfolder_name' in '$folder_name'."
