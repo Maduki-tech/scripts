@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-options=("work" "personal" "other")
+options=("work" "personal" "youtube" "nvim-package" "other")
 PS3="Select folder: "
 
 select folder_name in "${options[@]}"; do
