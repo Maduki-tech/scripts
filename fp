@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-options=("Go" "Java" "Javascript" "Rust" "C" "C++" "Python" "youtube" "nvim-package" "other")
+options=("Go" "Java" "Javascript" "Rust" "C" "C++" "Python" "youtube" "fullstack" "nvim-package" "other")
 PS3="Select folder: "
 
 select folder_name in "${options[@]}"; do
@@ -18,7 +18,8 @@ if [[ -z $subfolder_name ]]; then
     exit 1
 fi
 
-mkdir "$HOME/personal/$subfolder_name"
+mkdir "$HOME/personal/$folder_name/$subfolder_name"
+echo "$HOME/personal/$folder_name/$subfolder_name"
 
 if [[ $? -ne 0 ]]; then
     echo "Error creating subfolder '$subfolder_name' in '$folder_name'."
@@ -27,7 +28,7 @@ fi
 
 echo "Subfolder '$subfolder_name' created successfully in '$folder_name' folder of your home directory."
 
-selected="$HOME/$folder_name/$subfolder_name"
+selected="$HOME/personal/$folder_name/$subfolder_name"
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
